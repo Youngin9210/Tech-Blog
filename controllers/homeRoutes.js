@@ -9,4 +9,8 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/login', async (req, res) => {
+  return req.session.loggedIn ? res.redirect('/') : res.render('login');
+});
+
 module.exports = router;
