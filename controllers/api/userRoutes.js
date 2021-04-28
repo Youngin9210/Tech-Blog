@@ -22,4 +22,32 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.post('/login', async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      where: { username: req.body.username },
+    });
+
+    if (!userData) {
+      res.status(400).json({ message: 'Please enter a valid username.' });
+      return;
+    }
+
+    const userPassword = await userData.checkPassword(req.body.password);
+
+    if (!userPassword) {
+      res.status(400).json({ message: 'Password is incorrect.' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.logged_in = true;
+
+      res.json({ user: userData, message: `Welcome, ${userData.username}` });
+    });
+  } catch (e) {
+    res.status(400).json(e);
+  }
+});
+
 module.exports = router;
