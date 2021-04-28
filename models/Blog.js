@@ -20,17 +20,17 @@ Blog.init(
       allowNull: false,
     },
     blog_user: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       references: {
         model: 'user',
-        key: 'name',
+        key: 'id',
       },
     },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
+    // date_created: {
+    //   type: DataTypes.DATE,
+    //   allowNull: false,
+    //   defaultValue: DataTypes.NOW,
+    // },
   },
   {
     sequelize,
