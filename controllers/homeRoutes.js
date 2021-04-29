@@ -4,9 +4,9 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    res.render('homepage', {
-      logged_in: req.session.logged_in,
-    });
+    const blogData = await Blog.findAll();
+    const blogs = blogData.map((blog) => blog.get({ plain: true }));
+    res.render('homepage', { blogs, logged_in: req.session.logged_in });
   } catch (e) {
     console.log(e);
     res.status(500).json(e);
