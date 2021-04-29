@@ -4,7 +4,11 @@
     "blog_content": "Test content for Tech-Blog site"
   },
   {
-    "title": "Test 1",
+    "title": "Test 2",
+    "blog_content": "Test content for Tech-Blog site"
+  },
+  {
+    "title": "Test 3",
     "blog_content": "Test content for Tech-Blog site"
   }
 ]
