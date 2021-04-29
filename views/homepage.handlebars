@@ -12,9 +12,9 @@
       <p class="card-text">{{blog.blog_content}}</p>
       <button class="btn btn-primary">Comment</button>
     </div>
-    <div class="card-footer text-muted">
-      <p>Created: {{format_date blog.date_created}}</p>
+    <div class="card-footer text-muted d-flex justify-content-around">
       <p>Created By: {{blog.user_id}}</p>
+      <p>Created: {{format_date blog.date_created}}</p>
     </div>
   </div>
 {{/each}}
