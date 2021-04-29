@@ -3,3 +3,17 @@
     <h1 class="display-3">Hello World!</h1>
   </div>
 </div>
+
+<div class="container">
+{{#each blogs as |blog|}}
+  <div class="card m-3 text-center">
+    <div class="card-body">
+      <h5 class="card-title border-bottom">{{blog.title}}</h5>
+      <p class="card-text">{{blog.blog_content}}</p>
+      <div class="btn-group">
+        <button class="btn btn-primary">Comment</button>
+      </div>
+    </div>
+  </div>
+{{/each}}
+</div>
