@@ -12,7 +12,7 @@ const login = async (event) => {
     });
 
     response.ok
-      ? document.location.replace('/')
+      ? document.location.replace('/dashboard')
       : alert('Login attempt failed');
   }
 };
@@ -38,4 +38,5 @@ const signup = async (event) => {
 
 // event listeners
 document.querySelector('.login-form').addEventListener('submit', login);
+
 document.querySelector('.signup-form').addEventListener('submit', signup);

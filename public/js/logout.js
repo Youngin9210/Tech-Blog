@@ -6,7 +6,7 @@ const logout = async (e) => {
     headers: { 'Content-Type': 'application/json' },
   });
 
-  res.ok ? document.location.replace('/') : alert(readdirSync.statusText);
+  res.ok ? document.location.replace('/login') : alert(readdirSync.statusText);
 };
 
 document.querySelector('#logout').addEventListener('click', logout);
