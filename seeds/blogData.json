@@ -1,14 +1,14 @@
 [
   {
     "title": "Test 1",
-    "blog_content": "Test content for Tech-Blog site"
+    "blog_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum provident voluptatem ad sed dicta libero atque, accusantium quam tempore eum."
   },
   {
     "title": "Test 2",
-    "blog_content": "Test content for Tech-Blog site"
+    "blog_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat omnis excepturi, dignissimos, pariatur quas minus maiores magni rerum at quia itaque sed rem harum, odio doloribus possimus facere et."
   },
   {
     "title": "Test 3",
-    "blog_content": "Test content for Tech-Blog site"
+    "blog_content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, veniam?"
   }
 ]
