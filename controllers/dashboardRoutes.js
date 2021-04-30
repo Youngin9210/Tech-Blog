@@ -20,10 +20,20 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-// router.get('/update/:id', withAuth, async (req, res) => {
-//   try {
-//     const blogData = await Blog.findByPk(req.params.id);
-//   } catch (e) {}
-// });
+router.get('/update/:id', withAuth, async (req, res) => {
+  try {
+    const blogData = await Blog.findByPk(req.params.id);
+
+    const blog = blogData.get({ plain: true });
+    res.render('blogUpdate', {
+      blog,
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
+      blog_id: req.body.id,
+    });
+  } catch (e) {
+    res.status(400).json(e);
+  }
+});
 
 module.exports = router;
