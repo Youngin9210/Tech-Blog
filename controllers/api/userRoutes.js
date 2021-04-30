@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
 
       res.status(200).json(userData);
     });
-    console.log(userData);
+    // console.log(userData);
   } catch (e) {
     console.log(e);
     res.status(400).json(e);
@@ -33,7 +33,7 @@ router.post('/login', async (req, res) => {
     }
 
     const userPassword = await userData.verifyPassword(req.body.password);
-    console.log(userPassword);
+    // console.log(userPassword);
 
     if (!userPassword) {
       res.status(400).json({ message: 'Password is incorrect.' });
