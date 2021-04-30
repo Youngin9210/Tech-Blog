@@ -1,14 +1,13 @@
 <div class="container">
 {{#each blogs as |blog|}}
-  <div class="card m-3 text-center">
+  <div class="card m-3 text-left">
     <div class="card-body">
-      <h5 class="card-title border-bottom">{{blog.title}}</h5>
+      <div class="card-title border-bottom d-flex justify-content-between">
+      <h5>{{blog.title}}</h5>
+      <small class="text-muted">Posted By {{blog.user.username}} on {{format_date blog.date_created}}</small>
+      </div>
       <p class="card-text">{{blog.blog_content}}</p>
       <button class="btn btn-primary">Comment</button>
-    </div>
-    <div class="card-footer text-muted d-flex justify-content-around">
-      <p>Created By: {{blog.user_id}}</p>
-      <p>Created: {{format_date blog.date_created}}</p>
     </div>
   </div>
 {{/each}}
