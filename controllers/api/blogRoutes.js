@@ -22,7 +22,7 @@ router.get('/:id', async (req, res) => {
     console.log(blog);
     console.log('-----------------');
     console.log(comments);
-    res.render('blog', { blog, logged_in: req.session.logged_in });
+    res.render('blog', { blog, comments, logged_in: req.session.logged_in });
   } catch (e) {
     console.log(e);
   }

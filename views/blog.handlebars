@@ -8,6 +8,19 @@
       <p>Created: {{format_date blog.date_created}}</p>
       <p>Created By: {{blog.user.username}}</p>
     </div>
+  {{#if comments.length}}
+    <div class="container py-2">
+      <ul class="list-group">
+        {{#each comments as |comment|}}
+          <li class="list-group-item">
+              <div class="text-left w-50 m-auto">
+                <h5>{{comment.user.username}} <small class="text-muted">{{format_date comment.date}}</small></h5>
+                <p>{{comment.comment_content}}</p>
+              </div>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
   </div>
 </div>
-
+{{/if}}
