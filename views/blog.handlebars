@@ -1,0 +1,13 @@
+<div class="container my-3">
+  <div class="card m-3 text-center">
+    <div class="card-body">
+      <h2 class="card-title border-bottom">{{blog.title}}</h2>
+      <p class="card-text lead">{{blog.blog_content}}</p>
+    </div>
+    <div class="card-footer text-muted d-flex justify-content-around">
+      <p>Created: {{format_date blog.date_created}}</p>
+      <p>Created By: {{blog.user.username}}</p>
+    </div>
+  </div>
+</div>
+

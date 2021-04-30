@@ -4,7 +4,7 @@
     <div class="card-body">
       <h5 class="card-title border-bottom">{{blog.title}}</h5>
       <p class="card-text">{{blog.blog_content}}</p>
-      <a href="/dashboard/blog/{{blog.id}}" class="btn btn-primary">View Blog</a>
+      <a href="/api/blogs/{{blog.id}}" class="btn btn-primary">View Blog</a>
     </div>
     <div class="card-footer text-muted d-flex justify-content-around">
       <p>Created: {{format_date blog.date_created}}</p>
@@ -12,3 +12,4 @@
   </div>
 {{/each}}
 </div>
+
