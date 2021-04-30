@@ -1,17 +1,14 @@
-<div class="container container-fluid d-flex align-items-center justify-content-center">
-	{{#if blogData}}
-		{{#each blogs as |blog|}}
-			<div class="card m-3 text-center">
-				<div class="card-body">
-					<h5 class="card-title border-bottom">{{blog.title}}</h5>
-					<p class="card-text">{{blog.blog_content}}</p>
-					<div class="btn-group">
-						<button class="btn btn-primary">Comment</button>
-					</div>
-				</div>
-			</div>
-		{{/each}}
-	{{else}}
-			<h3 class="text-muted m-3">You do not have any blogs yet!</h3>
-	{{/if}}
-	</div>
+<div class="container my-3">
+{{#each blogs as |blog|}}
+  <div class="card m-3 text-center">
+    <div class="card-body">
+      <h5 class="card-title border-bottom">{{blog.title}}</h5>
+      <p class="card-text">{{blog.blog_content}}</p>
+      <a href="/dashboard/blog/{{blog.id}}" class="btn btn-primary">View Blog</a>
+    </div>
+    <div class="card-footer text-muted d-flex justify-content-around">
+      <p>Created: {{format_date blog.date_created}}</p>
+    </div>
+  </div>
+{{/each}}
+</div>
