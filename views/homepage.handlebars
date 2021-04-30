@@ -7,7 +7,7 @@
       <small class="text-muted">Posted By {{blog.user.username}} on {{format_date blog.date_created}}</small>
       </div>
       <p class="card-text">{{blog.blog_content}}</p>
-      <button class="btn btn-primary">Comment</button>
+      <a href="/api/blogs/{{blog.id}}" class="btn btn-primary">View Post</a>
     </div>
   </div>
 {{/each}}
