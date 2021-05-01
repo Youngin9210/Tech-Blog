@@ -29,13 +29,29 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.put('/update', withAuth, async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.Update(req.body, {
       where: {
         id: req.body.id,
       },
     });
+
+    res.status(200).json(blogData);
+  } catch (e) {
+    res.status(400).json(e);
+  }
+});
+
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const blogData = await Blog.destroy({
+      where: {
+        id: req.body.id,
+        user_id: req.body.user_id,
+      },
+    });
+
     res.status(200).json(blogData);
   } catch (e) {
     res.status(400).json(e);
