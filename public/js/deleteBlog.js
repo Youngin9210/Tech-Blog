@@ -13,7 +13,7 @@ const deleteBlog = async (event) => {
     console.log(response);
 
     response.ok
-      ? document.location.replace('/')
+      ? document.location.replace('/dashboard')
       : alert('Failed to delete blog.');
   }
 };

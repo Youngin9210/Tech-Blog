@@ -1,4 +1,4 @@
-<div class="container my-3">
+<div class="container my-3 text-center">
   <a href="/dashboard/create" class="btn btn-primary">New Blog</a>
 </div>
 {{#if blogs.length}}
@@ -20,6 +20,10 @@
   </div>
 
   <script src="/js/deleteBlog.js"></script>
+{{else}}
+  <div class="container text-center mt-3">
+    <h3 class="">No blogs have been posted yet!</h3>
+  </div>
 {{/if}}
 
 
