@@ -1,3 +1,4 @@
+{{#if blogs.length}}
 <div class="container">
 {{#each blogs as |blog|}}
   <div class="card m-3 text-left">
@@ -12,3 +13,9 @@
   </div>
 {{/each}}
 </div>
+{{else}}
+<div class="container text-center mt-3">
+  <h3 class="">No blogs have been posted yet!</h3>
+  <p>Go to Dashboard to create a new blog!</p>
+</div>
+{{/if}}
