@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Blog, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
       include: [
@@ -22,15 +22,13 @@ router.get('/:id', async (req, res) => {
     const blog = blogData.get({ plain: true });
     const comments = commentData.map((comment) => comment.get({ plain: true }));
     const user = userData.get({ plain: true });
-    // console.log(blogData);
-    // console.log(blog);
-    // console.log('-----------------');
-    console.log(user);
+
     res.render('blog', {
       blog,
       comments,
       user,
       logged_in: req.session.logged_in,
+      page: 'BLOG',
     });
   } catch (e) {
     console.log(e);

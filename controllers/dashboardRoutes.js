@@ -13,7 +13,11 @@ router.get('/', withAuth, async (req, res) => {
     // console.log(blogs);
     // console.log(req.session.user_id);
 
-    res.render('dashboard', { blogs, logged_in: req.session.logged_in });
+    res.render('dashboard', {
+      blogs,
+      logged_in: req.session.logged_in,
+      page: 'DASHBOARD',
+    });
   } catch (e) {
     console.log(e);
     res.status(400).json(e);
@@ -30,6 +34,7 @@ router.get('/update/:id', withAuth, async (req, res) => {
       logged_in: req.session.logged_in,
       user_id: req.session.user_id,
       blog_id: req.body.id,
+      page: 'UPDATE BLOG',
     });
   } catch (e) {
     res.status(400).json(e);
@@ -40,6 +45,7 @@ router.get('/create', withAuth, async (req, res) => {
   res.render('newBlog', {
     logged_in: req.session.logged_in,
     user_id: req.session.user_id,
+    page: 'CREATE BLOG',
   });
 });
 
