@@ -37,6 +37,20 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.post('/', withAuth, async (req, res) => {
+  try {
+    const blogData = await Blog.create({
+      title: req.body.title,
+      blog_content: req.body.blog_content,
+      user_id: req.session.user_id,
+    });
+    console.log(blogData);
+    res.status(200).json(blogData);
+  } catch (e) {
+    res.status(400).json(e);
+  }
+});
+
 router.put('/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.update(
@@ -65,6 +79,7 @@ router.delete('/:id', withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
+    console.log(blogData);
 
     res.status(200).json(blogData);
   } catch (e) {

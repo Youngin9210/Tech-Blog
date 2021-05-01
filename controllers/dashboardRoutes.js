@@ -36,4 +36,11 @@ router.get('/update/:id', withAuth, async (req, res) => {
   }
 });
 
+router.get('/create', withAuth, async (req, res) => {
+  res.render('newBlog', {
+    logged_in: req.session.logged_in,
+    user_id: req.session.user_id,
+  });
+});
+
 module.exports = router;
