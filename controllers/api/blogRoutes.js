@@ -17,13 +17,21 @@ router.get('/:id', async (req, res) => {
       where: { blog_id: req.params.id },
       include: [{ model: User, attributes: ['username'] }],
     });
+
+    const userData = await User.findOne({ where: { id: req.session.user_id } });
     const blog = blogData.get({ plain: true });
     const comments = commentData.map((comment) => comment.get({ plain: true }));
+    const user = userData.get({ plain: true });
     // console.log(blogData);
     // console.log(blog);
     // console.log('-----------------');
-    // console.log(comments);
-    res.render('blog', { blog, comments, logged_in: req.session.logged_in });
+    console.log(user);
+    res.render('blog', {
+      blog,
+      comments,
+      user,
+      logged_in: req.session.logged_in,
+    });
   } catch (e) {
     console.log(e);
   }
@@ -54,7 +62,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     const blogData = await Blog.destroy({
       where: {
         id: req.params.id,
-        user_id: req.body.user_id,
+        user_id: req.session.user_id,
       },
     });
 
