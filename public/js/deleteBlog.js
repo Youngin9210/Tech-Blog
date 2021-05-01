@@ -1,17 +1,21 @@
 const deleteBlog = async (event) => {
-  event.preventDefault();
+  // console.log(this);
+  // event.preventDefault();
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
+    console.log('id', id);
 
-  const id = document.querySelector('#deleteBlog').getAttribute('data-blog');
+    const response = await fetch(`/api/blogs/${id}`, {
+      method: 'DELETE',
+      body: JSON.stringify({ id }),
+      header: { 'Content-Type': 'application/json' },
+    });
+    console.log(response);
 
-  const response = await fetch(`/api/blogs/${id}`, {
-    method: 'DELETE',
-    body: JSON.stringify({ id }),
-    header: { 'Content-Type': 'application/json' },
-  });
-
-  response.ok
-    ? document.location.replace('/dashboard')
-    : alert('Failed to delete blog.');
+    response.ok
+      ? document.location.replace('/')
+      : alert('Failed to delete blog.');
+  }
 };
 
-document.querySelector('#deleteBlog').addEventListener('click', deleteBlog);
+document.querySelector('#blogs').addEventListener('click', deleteBlog);
