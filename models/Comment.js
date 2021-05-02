@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 
 class Comment extends Model {}
 
+// creating Comment model
 Comment.init(
   {
     id: {
@@ -36,10 +37,13 @@ Comment.init(
     },
   },
   {
+    // passing through sequelize db connection
     sequelize,
     timestamps: false,
+    // make sure model name stays as given name
     freezeTableName: true,
     underscored: true,
+    // setting model name
     modelName: 'comment',
   }
 );

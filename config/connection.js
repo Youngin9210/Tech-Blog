@@ -1,11 +1,15 @@
+// requiring Sequelize
 const Sequelize = require('sequelize');
+// including dotenv package to hide database credentials
 require('dotenv').config();
-
+// creating connection to db
 let sequelize;
 
+// using JAWSDB_URL to deploy app through heroku
 process.env.JAWSDB_URL
   ? (sequelize = new Sequelize(process.env.JAWSDB_URL))
-  : (sequelize = new Sequelize(
+  : // if no JAWSDB_URL, then use local db
+    (sequelize = new Sequelize(
       process.env.DB_NAME,
       process.env.DB_USER,
       process.env.DB_PASSWORD,
