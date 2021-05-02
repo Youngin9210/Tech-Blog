@@ -20,7 +20,7 @@ router.get('/', withAuth, async (req, res) => {
       page: 'DASHBOARD',
     });
   } catch (e) {
-    res.status(400).json(e.message());
+    res.status(400).json(e);
   }
 });
 
@@ -40,12 +40,12 @@ router.get('/update/:id', withAuth, async (req, res) => {
       page: 'UPDATE BLOG',
     });
   } catch (e) {
-    res.status(400).json(e.message());
+    res.status(400).json(e);
   }
 });
 // create new blog form
 router.get('/create', withAuth, async (req, res) => {
-// render newBlog.handlebars and passing through object data
+  // render newBlog.handlebars and passing through object data
   res.render('newBlog', {
     logged_in: req.session.logged_in,
     user_id: req.session.user_id,

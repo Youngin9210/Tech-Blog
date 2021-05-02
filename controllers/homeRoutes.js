@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
       page: 'HOME',
     });
   } catch (e) {
-    res.status(500).json(e.message());
+    res.status(500).json(e);
   }
 });
 

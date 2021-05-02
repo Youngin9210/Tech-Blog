@@ -38,7 +38,7 @@ router.get('/:id', withAuth, async (req, res) => {
       page: 'BLOG',
     });
   } catch (e) {
-    res.status(400).json(e.message());
+    res.status(400).json(e);
   }
 });
 // create new blog
@@ -53,7 +53,7 @@ router.post('/', withAuth, async (req, res) => {
     // sending json data to Blog model to create blog
     res.status(200).json(blogData);
   } catch (e) {
-    res.status(400).json(e.message());
+    res.status(400).json(e);
   }
 });
 // update blog
@@ -74,7 +74,7 @@ router.put('/:id', withAuth, async (req, res) => {
     // sending json data to Blog model for update
     res.status(200).json(blogData);
   } catch (e) {
-    res.status(400).json(e.message());
+    res.status(400).json(e);
   }
 });
 // delete blog
@@ -90,7 +90,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     // sending json data to Blog model for deletion
     res.status(200).json(blogData);
   } catch (e) {
-    res.status(400).json(e.message());
+    res.status(400).json(e);
   }
 });
 

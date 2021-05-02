@@ -9,7 +9,7 @@ router.post('/', withAuth, async (req, res) => {
     // sending json data to Comment model to create comment
     res.status(200).json(commentData);
   } catch (e) {
-    res.status(400).json(e.message());
+    res.status(400).json(e);
   }
 });
 
